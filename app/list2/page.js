@@ -3,13 +3,12 @@ import Link from "next/link";
 import DetailLink from "./DetailLink";
 import ListItem from "./ListItem";
 
-export const dynamic = "force-dynamic";
-
+export const revalidate = 60;
 const List = async () => {
   const db = (await connectDB).db("forum");
   const result = await db.collection("post").find().toArray();
 
-  let data = {};
+  console.log(1, result);
   return (
     <div className="list-bg">
       <ListItem result={result} />

@@ -1,4 +1,7 @@
+import { useSession } from "next-auth/react";
 const Write = () => {
+  const { data, status } = useSession();
+  console.log(data, status);
   return (
     <div className="p-20">
       <h4>글작성</h4>

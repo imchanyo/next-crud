@@ -1,12 +1,13 @@
-import { connectDB } from "@/util/database";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import LoginBtn from "./LoginBtn";
 
 export default async function Home() {
-  const db = (await connectDB).db("forum");
-  const result = await db.collection("post").find().toArray();
-  console.log(result);
+  const user = await getServerSession(authOptions);
+
   return (
     <>
-      <div>안녕</div>
+      <LoginBtn user={user} />
     </>
   );
 }

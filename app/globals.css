@@ -3,6 +3,8 @@
   padding: 10px;
 }
 .list-item {
+  opacity: 1;
+  transition: all 1s;
   background: white;
   border-radius: 10px;
   padding: 20px;

@@ -1,12 +1,16 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
-const Detail = async (props) => {
-  const db = (await connectDB).db("forum");
-  const result = await db.collection("post").findOne({
-    _id: new ObjectId(props.params.id),
-  });
+export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
+const Detail = async (props) => {
+  // const db = (await connectDB).db("forum");
+  // const result = await db.collection("post").findOne({
+  //   _id: new ObjectId(props.params.id),
+  // });
+
+  await fetch("", { cache: "force-cache" });
   console.log(props.params.id);
   return (
     <div>
